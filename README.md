@@ -17,21 +17,25 @@ Install the plugin using your favorite package manager.
 
 Here's an example using lazy.nvim:
 
+
+```
+~/.config/nvim/lua/plugins/pest.lua
+```
 ```lua
-{
-    'nvim-neotest/neotest',
-    dependencies = {
-        ...,
-        'V13Axel/neotest-pest',
+return {
+  {
+    "V13Axel/neotest-pest",
+  },
+  {
+    "nvim-neotest/neotest",
+    opts = {
+      adapters = {
+        ["neotest-pest"] = {
+          -- Config Options
+        },
+      },
     },
-    config = function()
-        require('neotest').setup({
-            ...,
-            adapters = {
-                require('neotest-pest'),
-            }
-        })
-    end
+  },
 }
 ```
 
